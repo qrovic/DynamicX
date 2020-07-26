@@ -4,19 +4,11 @@
 
 usage()
 {
-    echo "Usage: <Firmware type, only: OxygenOS> <Firmware link>"
-    echo -e "\tFirmware type: Firmware type, exemple: OxygenOS"
+    echo "Usage: <Firmware link>"
     echo -e "\tFirmware link: Firmware download link or local path"
 }
 
 if [[ ! -n $1 ]]; then
-    echo "-> ERROR!"
-    echo " - Enter all needed parameters"
-    usage
-    exit
-fi
-
-if [[ ! -n $2 ]]; then
     echo "-> ERROR!"
     echo " - Enter all needed parameters"
     usage
@@ -29,16 +21,8 @@ sudo -E apt-get -qq update
 sudo -E apt-get -qq install git openjdk-8-jdk wget p7zip-full simg2img unzip zip gzip tar python python3-pip
 pip3 install backports.lzma protobuf pycrypto google
 
-URL=$2
-SRCTYPE=$1
+URL=$1
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"
-
-if [[ $SRCTYPE == *":"* ]]; then
-    # Eg: OxygenOS:HydrogenOS will be HydrogenOS
-    SRCTYPENAME=`echo "$SRCTYPE" | cut -d ":" -f 2`
-else
-    SRCTYPENAME=$SRCTYPE
-fi
 
 DOWNLOAD()
 {
@@ -54,13 +38,6 @@ echo "*            @yukosky            *"
 echo "**********************************"
 echo " "
 echo " "
-
-if [ ! $SRCTYPE -eq "OxygenOS" || ! $SRCTYPE -eq "HydrogenOS" ]; then
-   echo "-> Error: Supporting only OxygenOS & HydrogenOS."
-   exit
-else
-   echo "-> OxygenOS type, ignore."
-fi
 
 echo "-> Warning: Run it in sudo type."
 

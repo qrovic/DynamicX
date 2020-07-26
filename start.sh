@@ -42,7 +42,6 @@ fi
 
 DOWNLOAD()
 {
-
     aria2c -x16 -j$(nproc) -U "Mozilla/5.0" -d "$PROJECT_DIR/input" -o "tmp.zip" ${URL}
 }
 
@@ -56,8 +55,8 @@ echo "**********************************"
 echo " "
 echo " "
 
-if [ ! $SRCTYPE -eq "OxygenOS" ]; then
-   echo "-> Error: Supporting only OxygenOS."
+if [ ! $SRCTYPE -eq "OxygenOS" ||  $SRCTYPE -eq "HydrogenOS" ]; then
+   echo "-> Error: Supporting only OxygenOS & HydrogenOS."
    exit
 else
    echo "-> OxygenOS type, ignore."

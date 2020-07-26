@@ -19,7 +19,7 @@ echo "- Setting up..."
 sudo -E apt-get -qq update
 # Some kang of rui's dynamic
 sudo -E apt-get -qq install git openjdk-8-jdk wget p7zip-full simg2img unzip zip gzip tar python python3-pip
-pip3 install backports.lzma protobuf pycrypto google
+sudo pip3 install backports.lzma protobuf pycrypto google
 
 URL=$1
 PROJECT_DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null && pwd )"

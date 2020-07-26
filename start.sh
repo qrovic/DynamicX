@@ -55,7 +55,7 @@ echo "**********************************"
 echo " "
 echo " "
 
-if [ ! $SRCTYPE -eq "OxygenOS" ||  $SRCTYPE -eq "HydrogenOS" ]; then
+if [ ! $SRCTYPE -eq "OxygenOS" || ! $SRCTYPE -eq "HydrogenOS" ]; then
    echo "-> Error: Supporting only OxygenOS & HydrogenOS."
    exit
 else

@@ -56,6 +56,13 @@ echo "**********************************"
 echo " "
 echo " "
 
+if [ ! $SRCTYPE -eq "OxygenOS" ]; then
+   echo "-> Error: Supporting only OxygenOS."
+   exit
+else
+   echo "-> OxygenOS type, ignore."
+fi
+
 echo "-> Warning: Run it in sudo type."
 
 mkdir -p tmp/input/

@@ -48,7 +48,7 @@ cd tmp/input;
 echo "-> Downloading firmware, link: $URL"
 DOWNLOAD "$URL"
 
-if [ -t "/home/runner/work/DynamicX/DynamicX/input/tmp.zip" ]; then
+if [ -t "/input/tmp.zip" ]; then
    echo "-> Unzipping downloaded firmware"
    unzip tmp -x compatibility.zip core_map.pb META-INF/* payload_properties.txt
 else
